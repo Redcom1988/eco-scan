@@ -15,12 +15,13 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      final user = await AuthService.login(username, password);
-      _currentUser = user;
+      final authService = AuthService();
+      final user = await authService.login(username, password);
+      _currentUser = user as User?;
 
       // Save token to shared preferences
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('auth_token', user.id.toString());
+      await prefs.setString('auth_token', user?.id.toString() ?? '');
 
       _isLoading = false;
       notifyListeners();

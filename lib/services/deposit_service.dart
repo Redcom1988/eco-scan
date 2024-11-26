@@ -25,4 +25,8 @@ class DepositService {
       return [];
     }
   }
+
+  getDepositHistory(String userId) {}
+
+  processQRCode(String qrCode) {}
 }

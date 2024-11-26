@@ -34,3 +34,26 @@ class PointsProvider with ChangeNotifier {
     }
   }
 }
+
+// In deposit_service.dart
+class DepositService {
+  Future<List<Map<String, dynamic>>> getDepositHistory(String userId) async {
+    try {
+      // Implement the logic to fetch deposit history
+      // This could involve API calls or database operations
+      return [
+        {
+          'id': '1',
+          'amount': 100,
+          'points': 10,
+          'timestamp': DateTime.now().toIso8601String(),
+          'location': 'Location A'
+        }
+        // Add more history items as needed
+      ];
+    } catch (e) {
+      print('Error fetching deposit history: $e');
+      return [];
+    }
+  }
+}
